@@ -20,9 +20,9 @@ generate_commit_message() {
 for i in {1..10}; do
   echo "entry $i" >> log.txt                       # Запись в лог
   git add .                                        # Добавляем все изменения
-  export GIT_AUTHOR_DATE="$(date -d "$((RANDOM % 100 + 1)) days ago" '+%Y-%m-%dT12:00:00')"  # Дата автора
+  export GIT_AUTHOR_DATE="$(date -d "$((RANDOM % 150 + 1)) days ago" '+%Y-%m-%dT12:00:00')"  # Дата автора
   export GIT_COMMITTER_DATE="$GIT_AUTHOR_DATE"      # Дата коммитера
   git commit -m "$(generate_commit_message)"       # Создаём коммит с рандомным сообщением
   git push origin main                             # Пушим коммит на GitHub
-  sleep $((RANDOM % 16 + 15))                       # Задержка, чтобы не казалось спамом
+  sleep $((RANDOM % 21 + 20))                       # Задержка, чтобы не казалось спамом
 done
